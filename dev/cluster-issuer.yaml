@@ -8,6 +8,11 @@ spec:
     email: aharuzi@doorloop.com
     privateKeySecretRef:
       name: zerossl-account-key
+    externalAccountBinding:
+      keyID: J5ZBxctZOW_W-634B5ytUA
+      keySecretRef:
+        name: zerossl-eab-secret
+        key: eab-hmac-key
     solvers:
       - http01:
           ingress:
