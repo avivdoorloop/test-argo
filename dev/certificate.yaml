@@ -4,8 +4,6 @@ metadata:
   name: myapp-cert
 spec:
   secretName: myapp-tls
-  duration: 90d
-  renewBefore: 60d
   issuerRef:
     name: zerossl-issuer
     kind: ClusterIssuer
