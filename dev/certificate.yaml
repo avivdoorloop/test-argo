@@ -4,6 +4,8 @@ metadata:
   name: myapp-cert
 spec:
   secretName: myapp-tls
+  duration: 90d
+  renewBefore: 60d
   issuerRef:
     name: zerossl-issuer
     kind: ClusterIssuer
@@ -11,6 +13,10 @@ spec:
   dnsNames:
     - aviv.doorloop.info
   solvers:
-    - http01:
-        ingress:
-          class: nginx
+    - dns01:
+        route53:
+          region: us-east-1
+          accessKeyID: AKIASGNC4G66Q6Y3ZHXA
+          secretAccessKeySecretRef:
+            name: route53-credentials-secret
+            key: secret-access-key

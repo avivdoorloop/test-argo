@@ -13,12 +13,3 @@ spec:
       keySecretRef:
         name: zerossl-eab-secret
         key: eab-hmac-key
-    solvers:
-      - dns01:
-          route53:
-            region: us-east-1
-            secretAccessKeySecretRef:
-              name: ''
-        selector:
-          dnsZones:
-            - develop.doorloop.com
