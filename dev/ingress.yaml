@@ -6,6 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: zerossl-issuer
 spec:
+  ingressClassName: nginx
   tls:
     - hosts:
         - aviv.doorloop.info
