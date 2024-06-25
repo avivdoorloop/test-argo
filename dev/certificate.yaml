@@ -10,7 +10,7 @@ spec:
   commonName: aviv.doorloop.info
   dnsNames:
     - aviv.doorloop.info
-  acme:
-    config:
-      - http01:
-          ingressClassName: nginx
+  solvers:
+    - http01:
+        ingress:
+          class: nginx
