@@ -1,2 +1,1 @@
-# test-argo
-Test argocd environment
+# test-argocd
