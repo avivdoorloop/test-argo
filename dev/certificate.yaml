@@ -11,10 +11,6 @@ spec:
   dnsNames:
     - aviv.doorloop.info
   solvers:
-    - dns01:
-        route53:
-          region: us-east-1
-          accessKeyID: AKIASGNC4G66Q6Y3ZHXA
-          secretAccessKeySecretRef:
-            name: route53-credentials-secret
-            key: secret-access-key
+    - http01:
+        ingress:
+          class: nginx
