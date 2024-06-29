@@ -13,3 +13,7 @@ spec:
       keySecretRef:
         name: zerossl-eab-secret
         key: eab-hmac-key
+    solvers:
+      - http01:
+          ingress:
+            ingressClassName: nginx
