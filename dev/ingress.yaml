@@ -15,4 +15,4 @@ spec:
       middlewares:
         - name: myapp-redirect-to-https
   tls:
-    certResolver: letsencrypt
+    certResolver: zerossl
