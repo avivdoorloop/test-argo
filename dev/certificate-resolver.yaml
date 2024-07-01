@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-config
+  namespace: traefik
+data:
+  traefik.yml: |
+    entryPoints:
+      web:
+        address: ":80"
+      websecure:
+        address: ":443"
+
+    certificatesResolvers:
+      zerossl:
+        acme:
+          email: aharuzi@doorloop.com
+          storage: /data/acme.json
+          dnsChallenge:
+            provider: zerossl

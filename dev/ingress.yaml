@@ -1,24 +1,19 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: myapp-ingress
-  annotations:
-    traefik.ingress.kubernetes.io/rewrite-target: /
-    cert-manager.io/cluster-issuer: zerossl-issuer
+  namespace: your-namespace
 spec:
-  ingressClassName: traefik
+  entryPoints:
+    - web
+    - websecure
+  routes:
+    - match: Host(`aviv.doorloop.info`)
+      kind: Rule
+      services:
+        - name: myapp-service
+          port: 80
+      middlewares:
+        - name: redirect-to-https
   tls:
-    - hosts:
-        - aviv.doorloop.info
-      secretName: myapp-tls
-  rules:
-    - host: aviv.doorloop.info
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: myapp-service
-                port:
-                  number: 80
+    certResolver: zerossl
