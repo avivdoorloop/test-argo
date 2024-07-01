@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: myapp-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    traefik.ingress.kubernetes.io/rewrite-target: /
     cert-manager.io/cluster-issuer: zerossl-issuer
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   tls:
     - hosts:
         - aviv.doorloop.info
