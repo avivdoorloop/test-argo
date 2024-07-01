@@ -13,6 +13,6 @@ spec:
         - name: myapp-service
           port: 80
       middlewares:
-        - name: redirect-to-https
+        - name: myapp-redirect-to-https
   tls:
     certResolver: letsencrypt
